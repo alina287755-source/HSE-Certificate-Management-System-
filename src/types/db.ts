@@ -30,6 +30,7 @@ export interface Employee {
   position_title: string | null
   phone: string | null
   email: string | null
+  telegram_chat_id: string | null
   is_active: boolean
   created_at: string
   updated_at: string

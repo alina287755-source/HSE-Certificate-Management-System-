@@ -17,6 +17,7 @@ const emptyForm = {
   position_title: '',
   phone: '',
   email: '',
+  telegram_chat_id: '',
 }
 
 export function EmployeeFormModal({ existing, onClose, onSaved }: Props) {
@@ -31,6 +32,7 @@ export function EmployeeFormModal({ existing, onClose, onSaved }: Props) {
           position_title: existing.position_title ?? '',
           phone: existing.phone ?? '',
           email: existing.email ?? '',
+          telegram_chat_id: existing.telegram_chat_id ?? '',
         }
       : emptyForm
   )
@@ -61,6 +63,7 @@ export function EmployeeFormModal({ existing, onClose, onSaved }: Props) {
         position_title: form.position_title.trim() || null,
         phone: form.phone.trim() || null,
         email: form.email.trim() || null,
+        telegram_chat_id: form.telegram_chat_id.trim() || null,
       }
 
       if (existing) {
@@ -176,6 +179,19 @@ export function EmployeeFormModal({ existing, onClose, onSaved }: Props) {
                 className="w-full rounded-lg border border-border px-3 py-2 text-sm outline-none focus:border-brand-700"
               />
             </div>
+          </div>
+
+          <div>
+            <label className="mb-1 block text-sm font-medium text-ink-muted">Telegram chat ID (для уведомлений)</label>
+            <input
+              value={form.telegram_chat_id}
+              onChange={(e) => update('telegram_chat_id', e.target.value)}
+              className="w-full rounded-lg border border-border px-3 py-2 text-sm font-mono outline-none focus:border-brand-700"
+              placeholder="Например: 123456789"
+            />
+            <p className="mt-1 text-xs text-ink-faint">
+              Сотрудник получает свой ID у бота @userinfobot в Telegram и сообщает его вам.
+            </p>
           </div>
 
           {error && <p className="text-sm text-status-expired">{error}</p>}
