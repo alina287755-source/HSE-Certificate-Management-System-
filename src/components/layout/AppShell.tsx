@@ -6,13 +6,13 @@ const NAV_ITEMS = [
   { to: '/', label: 'Главная', icon: '🏠', end: true },
   { to: '/employees', label: 'Сотрудники', icon: '👥' },
   { to: '/certifications', label: 'Сертификация', icon: '📜' },
-  { to: '/training', label: 'Обучение', icon: '🎓', soon: true },
-  { to: '/briefings', label: 'Инструктажи', icon: '📋', soon: true },
-  { to: '/knowledge-checks', label: 'Проверка знаний и допуск', icon: '✅', soon: true },
-  { to: '/ppe', label: 'СИЗ и средства безопасности', icon: '🦺', soon: true },
-  { to: '/notifications', label: 'Уведомления', icon: '🔔', soon: true },
-  { to: '/reports', label: 'Отчёты', icon: '📊', soon: true },
-  { to: '/settings', label: 'Настройки', icon: '⚙️', soon: true },
+  { to: '/training', label: 'Обучение', icon: '🎓' },
+  { to: '/briefings', label: 'Инструктажи', icon: '📋' },
+  { to: '/knowledge-checks', label: 'Проверка знаний и допуск', icon: '✅' },
+  { to: '/ppe', label: 'СИЗ и средства безопасности', icon: '🦺' },
+  { to: '/notifications', label: 'Уведомления', icon: '🔔' },
+  { to: '/reports', label: 'Отчёты', icon: '📊' },
+  { to: '/settings', label: 'Настройки', icon: '⚙️' },
 ]
 
 const ROLE_LABELS: Record<string, string> = {
@@ -43,22 +43,14 @@ export function AppShell({ children }: { children: ReactNode }) {
               key={item.to}
               to={item.to}
               end={item.end}
-              onClick={(e) => item.soon && e.preventDefault()}
               className={({ isActive }) =>
-                `flex items-center justify-between rounded-lg px-3 py-2.5 text-sm transition ${
-                  item.soon
-                    ? 'cursor-not-allowed text-white/30'
-                    : isActive
-                      ? 'bg-accent-500 font-medium text-brand-950'
-                      : 'text-white/80 hover:bg-white/10'
+                `flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm transition ${
+                  isActive ? 'bg-accent-500 font-medium text-brand-950' : 'text-white/80 hover:bg-white/10'
                 }`
               }
             >
-              <span className="flex items-center gap-3">
-                <span>{item.icon}</span>
-                {item.label}
-              </span>
-              {item.soon && <span className="text-[10px] uppercase tracking-wide">скоро</span>}
+              <span>{item.icon}</span>
+              {item.label}
             </NavLink>
           ))}
         </nav>
