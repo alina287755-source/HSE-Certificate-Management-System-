@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+
+  /* Neutral surface scale */
+  --color-canvas: #F5F6F8;
+  --color-surface: #FFFFFF;
+  --color-surface-muted: #EEF0F3;
+  --color-border: #E1E4E9;
+  --color-border-strong: #C7CCD4;
+
+  /* Text */
+  --color-ink: #17212E;
+  --color-ink-muted: #5B6472;
+  --color-ink-faint: #8B93A0;
+
+  /* Brand (deep industrial navy) */
+  --color-brand-950: #0B1D33;
+  --color-brand-900: #122A48;
+  --color-brand-800: #1B3A5C;
+  --color-brand-700: #234A73;
+  --color-brand-100: #E6EDF4;
+
+  /* Accent (safety amber) */
+  --color-accent-600: #C97A0E;
+  --color-accent-500: #D98C15;
+  --color-accent-100: #FBEBD2;
+
+  /* Status semaphore */
+  --color-status-ok: #1F9D55;
+  --color-status-ok-bg: #E5F6EC;
+  --color-status-warn: #C98A00;
+  --color-status-warn-bg: #FDF2D9;
+  --color-status-expired: #D64545;
+  --color-status-expired-bg: #FCE7E7;
+  --color-status-none: #8B93A0;
+  --color-status-none-bg: #EEF0F3;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--color-canvas);
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--color-accent-100);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-border-strong) transparent;
+}
